@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List</title>
+  <link rel="icon" type="image/x-icon" href="/images/icon.png" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;900&display=swap" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/popup/styles.css" />
+
+  <!-- JavaScript File -->
+  <script src="/popup/script.js" type="module"></script>
+</head>
+
+<body>
+  <main class="app-container roundBorder" role="main">
+    <!-- Notification Container -->
+    <div id="notification-container"></div>
+
+    <!-- Date and Time Display -->
+    <section class="date-display">
+      <div class="date-hour">
+        <p id="date">Thu Sep 28 2023</p>
+        <p id="hour">20:33:46</p>
+      </div>
+    </section>
+
+    <!-- To-Do App Section -->
+    <section class="todo-app">
+      <h1>To Do List</h1>
+      <div class="row">
+
+        <!-- Task Input -->
+        <div class="input-container">
+          <textarea id="input-box" placeholder="Add your task" aria-label="Add your task" rows="1"></textarea>
+        </div>
+
+        <!-- Add Task Button -->
+        <div id="buttoncontainer" class="button-container">
+          <button id="addTaskButton">Add</button>
+        </div>
+      </div>
+
+      <!-- Task List -->
+      <ul id="list-container" class="sortable-list" aria-live="polite"></ul>
+    </section>
+
+    <!-- Pending Tasks Section -->
+    <section class="pending-tasks">
+      <span><span class="pending-num"> 0 </span> <span class="pending-label">Tasks left</span></span>
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="active">Active</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+      </div>
+      <button class="clear-button">Clear</button>
+    </section>
+  </main>
+</body>
+
+</html>

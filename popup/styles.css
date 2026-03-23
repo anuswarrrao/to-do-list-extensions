@@ -1,0 +1,391 @@
+/* Root Variables for Theme Colors */
+:root {
+  --light: #fff;
+  --disabled: #edeef0;
+  --main-colour: #ff5945;
+  --hover-colour: #102f5e;
+}
+
+/* General Styles */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Lato", sans-serif;
+  background: transparent;
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--disabled);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-colour);
+  border-radius: 0;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--hover-colour);
+}
+
+/* Textarea specific scrollbar - hidden until scrolling */
+textarea::-webkit-scrollbar {
+  width: 4px;
+}
+
+textarea::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 0;
+  transition: background-color 0.3s;
+}
+
+textarea:hover::-webkit-scrollbar-thumb,
+textarea:focus::-webkit-scrollbar-thumb {
+  background-color: var(--main-colour);
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+  background-color: var(--hover-colour);
+}
+
+/* Rounded Borders */
+.roundBorder {
+  border-radius: 5px;
+}
+
+/* Main App Container */
+.app-container {
+  width: 340px;
+  margin: 0 auto;
+  padding: 5px 20px 20px 20px;
+  background-color: var(--light);
+}
+
+/* Date and Time Display */
+.date-hour {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  color: var(--hover-colour);
+}
+
+#date {
+  display: flex;
+  align-items: center;
+}
+
+/* To-Do App Section */
+.todo-app h1 {
+  color: var(--hover-colour);
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-left: 16px;
+  border-left: 5px solid var(--main-colour);
+}
+
+.todo-app h1 img {
+  width: 30px;
+  margin-left: 10px;
+}
+
+.todo-app p {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.row {
+  display: flex;
+  align-items: stretch;
+  background: var(--disabled);
+  border-radius: 30px;
+  padding: 0 0 0 20px;
+  margin-bottom: 25px;
+  overflow: visible;
+  transition: background-color 0.2s, padding 0.2s;
+}
+
+.row.multiline {
+  align-items: flex-end;
+  padding: 6px 6px 6px 20px;
+  overflow: hidden;
+}
+
+.row:focus-within {
+  background-color: #e2e4e8;
+}
+
+/* Input Container for To-Do Entry */
+.input-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Error styling for the row */
+.row.error-row {
+  outline: 2px solid red;
+  background-color: #ffe5e5;
+}
+
+textarea#input-box {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 14px 12px 14px 0;
+  font-size: 14px;
+  font-family: "Lato", sans-serif;
+  line-height: 1.5;
+  overflow-y: auto;
+  resize: none;
+  max-height: 120px;
+  min-height: 36px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Button Styles */
+button {
+  border: none;
+  outline: none;
+  padding: 16px 50px;
+  background: var(--main-colour);
+  color: var(--light);
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: background-color 0.2s ease-in-out, border-radius 0.2s, padding 0.2s;
+  flex-shrink: 0;
+  white-space: nowrap;
+  align-self: stretch;
+  margin: 0;
+}
+
+/* Floating pill button when multiline */
+.row.multiline #addTaskButton {
+  border-radius: 30px;
+  align-self: flex-end;
+  padding: 12px 28px;
+  margin: 0 6px 6px 6px;
+}
+
+button:hover,
+button:active {
+  background-color: var(--hover-colour);
+}
+
+/* List and Task Styles */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  min-height: 180px;
+}
+
+ul li {
+  font-size: 17px;
+  padding: 15px 8px 12px 50px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  position: relative;
+  white-space: normal;
+  word-break: break-word;
+  max-width: 100%;
+  padding-right: 50px;
+  line-height: 1.5;
+}
+
+ul li::before {
+  content: "";
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  border-radius: 50px;
+  background-image: url(/images/unchecked.png);
+  background-size: cover;
+  background-position: center;
+  top: 12px;
+  left: 8px;
+}
+
+ul li.checked {
+  color: #555;
+  text-decoration: line-through;
+}
+
+ul li.checked::before {
+  background-image: url(/images/checked.png);
+  -webkit-animation: 1s normal;
+          animation: 1s normal;
+}
+
+
+ul li:active::before {
+  background-image: url(/images/checked.png);
+  -webkit-animation: 1s normal;
+          animation: 1s normal;
+}
+
+ul li span {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  color: #555;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  z-index: 1;
+  cursor: pointer;
+}
+
+ul li span:hover {
+  color: var(--main-colour);
+}
+
+ul li:focus {
+  outline: 2px solid var(--main-colour);
+  outline-offset: -2px;
+  border-radius: 4px;
+}
+
+ul li code {
+  font-family: monospace;
+  background: var(--disabled);
+  border-radius: 3px;
+  padding: 0 3px;
+  font-size: 0.9em;
+}
+
+ul li textarea {
+  width: calc(100% - 20px);
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 17px;
+  resize: none;
+  background-color: transparent;
+  word-wrap: break-word;
+  height: auto;
+  white-space: normal;
+  overflow-wrap: break-word;
+  position: relative;
+  font-family: "Lato", sans-serif;
+}
+
+/* Empty state message */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 180px;
+  padding: 0;
+  margin: 0;
+  cursor: default;
+}
+
+.empty-state img {
+  width: 48px;
+  height: 48px;
+}
+
+.empty-state::before {
+  display: none;
+}
+
+.empty-state p {
+  margin: 0;
+  color: var(--hover-colour);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Pending Tasks and Clear Button */
+.pending-tasks {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 35px;
+  padding: 10px 0 0;
+  border-top: 1px solid var(--disabled);
+}
+
+/* Filter tabs */
+.filter-tabs {
+  display: flex;
+  gap: 2px;
+}
+
+.filter-btn {
+  padding: 4px 6px;
+  font-size: 11px;
+  background: transparent;
+  color: var(--hover-colour);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.filter-btn:hover,
+.filter-btn:active {
+  background-color: transparent;
+  color: var(--main-colour);
+}
+
+.filter-btn.active {
+  border-color: var(--main-colour);
+  color: var(--main-colour);
+  background-color: transparent;
+}
+
+.pending-tasks span {
+  color: var(--hover-colour);
+}
+
+.pending-tasks span .pending-num {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: var(--main-colour);
+  color: var(--light);
+}
+
+.pending-tasks .clear-button {
+  padding: 6px 12px;
+  outline: none;
+  border: none;
+  background: var(--main-colour);
+  color: var(--light);
+  font-size: 14px;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+.clear-button:hover {
+  background-color: var(--hover-colour);
+}
